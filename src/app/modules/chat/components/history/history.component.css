@@ -10,6 +10,19 @@
   flex-direction: column;
 }
 
+.message {
+  display: flex;
+}
+
+.my-message {
+  justify-content: end;
+  align-items: end;
+}
+
+.other-message {
+  align-items: start;
+}
+
 .chat .chat-history .other-message:after {
   border-bottom-color: #e8f1f3;
   left: 93%
