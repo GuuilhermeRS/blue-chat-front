@@ -10,6 +10,7 @@ import { MessageServiceService } from 'src/app/services/message-service.service'
 })
 export class HistoryComponent implements OnInit {
   messageList: Array<Message> = []
+  id: string = '43c7929c-29e2-4e9a-9d74-bba45e63fdc8';
 
   constructor(
     private _wsService: BlueChatServerService,
@@ -19,8 +20,9 @@ export class HistoryComponent implements OnInit {
   ngOnInit(): void {
     this._messageService._messages
       .subscribe(s => {
-        this.messageList = s
-        console.log(s)
+
+        this.messageList = s[this.id];
+        console.log(this.messageList)
       });
   }
 }

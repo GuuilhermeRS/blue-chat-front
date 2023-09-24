@@ -26,7 +26,16 @@ export class BlueChatServerService {
         let receivedMessage: Message = JSON.parse(event.data);
 
         const listaAtual = this._messageService._messages.value;
-        listaAtual.push(receivedMessage);
+
+        let test = listaAtual[receivedMessage.user];
+        if (test == undefined) {
+          listaAtual[receivedMessage.user] = [receivedMessage];
+        }
+        else {
+          listaAtual[receivedMessage.user].push(receivedMessage);
+        }
+        console.log(listaAtual)
+
         this._messageService._messages.next(listaAtual);
       });
     });
