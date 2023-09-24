@@ -2,8 +2,7 @@
   <ul class="list">
 
     <ng-container *ngFor="let m of messageList">
-      <app-mensagem class="message my-message" [messageContent]="m"
-        [className]="m.recebida ? 'other-message' : 'my-message'"></app-mensagem>
+      <app-mensagem class="message my-message" [messageContent]="m"></app-mensagem>
     </ng-container>
 
 
