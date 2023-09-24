@@ -5,6 +5,7 @@ import { RouterModule } from '@angular/router';
 import { ChatRoutes } from './chat.routing';
 import { ProfileComponent } from './components/profile/profile.component';
 import { HistoryComponent } from './components/history/history.component';
+import { MensagemComponent } from './components/history/mensagem/mensagem.component';
 
 
 
@@ -12,7 +13,8 @@ import { HistoryComponent } from './components/history/history.component';
   declarations: [
     ChatComponent,
     ProfileComponent,
-    HistoryComponent
+    HistoryComponent,
+    MensagemComponent
   ],
   imports: [
     RouterModule.forChild(ChatRoutes),

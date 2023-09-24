@@ -1,0 +1,20 @@
+.chat-history {
+  border: 2px solid #939393;
+  border-radius: 8px;
+}
+
+.list {
+  list-style: none;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.chat .chat-history .other-message:after {
+  border-bottom-color: #e8f1f3;
+  left: 93%
+}
+
+li {
+  margin-bottom: 8px;
+}
