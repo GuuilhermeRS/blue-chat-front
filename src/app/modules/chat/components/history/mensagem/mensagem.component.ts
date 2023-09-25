@@ -7,5 +7,5 @@ import { Message } from '../Message';
   styleUrls: ['./mensagem.component.css']
 })
 export class MensagemComponent {
-  @Input() messageContent: Message = { content: '', dtEnvio: '', user: '' };
+  @Input() messageContent: Message = { content: '', dtEnvio: '', GrupoGuid: '', user: '' };
 }
