@@ -1,0 +1,7 @@
+.container {
+  display: flex;
+}
+
+.chield {
+  flex-grow: 1;
+}

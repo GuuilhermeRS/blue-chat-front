@@ -1,0 +1,33 @@
+.container {
+  height: 64px;
+  border: 2px solid #939393;
+  display: flex;
+  align-items: center;
+  padding: 8px;
+}
+
+.img-container {
+  margin-right: 8px;
+}
+
+img {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+
+.profile {
+  width: 100%;
+  min-height: 32px;
+  max-height: 100%;;
+}
+
+.profile h4 {
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+}
+
+.profile p {
+  margin: 4px 0 0 0;
+}

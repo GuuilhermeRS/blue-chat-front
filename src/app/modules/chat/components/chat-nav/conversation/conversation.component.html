@@ -1,0 +1,9 @@
+<div class="container">
+  <a href="#" class="img-container">
+    <img src='{{ user.profile_pic }}' alt="avatar">
+  </a>
+  <div class="profile">
+    <h4>{{ user.name }}</h4>
+    <p>{{ user.active ? 'Ativo' : 'Ativo em: ' + user.active_in }}</p>
+  </div>
+</div>

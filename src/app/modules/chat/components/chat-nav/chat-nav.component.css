@@ -1,0 +1,13 @@
+.nav-container {
+  height: calc(100vh - 24px);
+  width: 392px;
+  border: 2px solid #939393;
+}
+
+.conversation {
+  cursor: pointer;
+}
+
+.open-chat {
+  background: #c0c0c0;
+}

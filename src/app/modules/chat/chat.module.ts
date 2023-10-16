@@ -6,6 +6,8 @@ import { ChatRoutes } from './chat.routing';
 import { ProfileComponent } from './components/profile/profile.component';
 import { HistoryComponent } from './components/history/history.component';
 import { MensagemComponent } from './components/history/mensagem/mensagem.component';
+import { ChatNavComponent } from './components/chat-nav/chat-nav.component';
+import { ConversationComponent } from './components/chat-nav/conversation/conversation.component';
 
 
 
@@ -14,7 +16,9 @@ import { MensagemComponent } from './components/history/mensagem/mensagem.compon
     ChatComponent,
     ProfileComponent,
     HistoryComponent,
-    MensagemComponent
+    MensagemComponent,
+    ChatNavComponent,
+    ConversationComponent
   ],
   imports: [
     RouterModule.forChild(ChatRoutes),
