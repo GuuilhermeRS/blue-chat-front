@@ -1,10 +1,13 @@
 <div class="chat-history">
-  <ul class="list">
+  <div class="list">
 
-    <ng-container *ngFor="let m of messageList">
-      <app-mensagem class="message my-message" [messageContent]="m"></app-mensagem>
+    <ng-container *ngFor="let m of messages" class="message-container">
+      <app-mensagem
+        [message]="m"
+        class="message"
+        [ngClass]='m.received ? "my-message" : "other-message"'>
+      </app-mensagem>
     </ng-container>
 
-
-  </ul>
+  </div>
 </div>

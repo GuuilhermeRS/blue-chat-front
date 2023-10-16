@@ -1,6 +1,6 @@
-<li class="message my">
-  <div class="my-message">{{ messageContent.content }}</div>
+<div class="message">
+  <div>{{ message.content }}</div>
   <div class="message-data">
-    <span class="message-data-time">{{ messageContent.dtEnvio }}</span>
+    <span class="message-data-time">{{ message.receivedAt.toLocaleString() }}</span>
   </div>
-</li>
+</div>

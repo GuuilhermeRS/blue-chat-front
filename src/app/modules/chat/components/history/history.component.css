@@ -4,6 +4,7 @@
 }
 
 .list {
+  padding: 16px 40px;
   list-style: none;
   height: 100vh;
   display: flex;
@@ -15,19 +16,11 @@
 }
 
 .my-message {
-  justify-content: end;
-  align-items: end;
+  justify-content: flex-start;
+  margin-right: auto;
 }
 
 .other-message {
-  align-items: start;
-}
-
-.chat .chat-history .other-message:after {
-  border-bottom-color: #e8f1f3;
-  left: 93%
-}
-
-li {
-  margin-bottom: 8px;
+  justify-content: flex-end;
+  margin-left: auto;
 }

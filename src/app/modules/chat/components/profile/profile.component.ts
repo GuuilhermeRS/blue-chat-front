@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { IUser } from '../../interfaces/IUser';
+
+
 
 @Component({
   selector: 'app-profile',
@@ -7,5 +10,10 @@ import { Component } from '@angular/core';
 })
 
 export class ProfileComponent {
+  @Input() public user: IUser = {
+    name: '',
+    profile_pic: ''
+  };
 
+  constructor() { }
 }
