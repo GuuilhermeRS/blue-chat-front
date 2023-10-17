@@ -1,6 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Message } from '../Message';
-import { IMessage } from '../../../interfaces/IMessage';
+import { IMessage } from 'src/app/models/interfaces/IMessage';
 
 @Component({
   selector: 'app-mensagem',
@@ -8,5 +7,10 @@ import { IMessage } from '../../../interfaces/IMessage';
   styleUrls: ['./mensagem.component.css']
 })
 export class MensagemComponent {
-  @Input() message: IMessage = { content: '', received: true, receivedAt: new Date(2023, 10, 8, 17, 30, 0) }
+  @Input() message: IMessage = {
+    group_id: 0,
+    content: '',
+    received: true,
+    receivedAt: new Date(2023, 10, 8, 17, 30, 0)
+  }
 }

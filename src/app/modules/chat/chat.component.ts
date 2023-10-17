@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { IUser } from './interfaces/IUser';
 import { ChatService } from 'src/app/services/app/chat.service';
 import { IGrupo } from 'src/app/models/interfaces/IGrupo';
 
