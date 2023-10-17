@@ -1,10 +1,10 @@
 <div class="nav-container">
-  <ng-container *ngFor="let user of users">
+  <ng-container *ngFor="let group of groups">
     <div
       class="conversation"
-      (click)="abrirConversa(user)"
-      [ngClass]="user.open_chat ? 'open-chat' : ''">
-      <app-conversation [user]="user"></app-conversation>
+      (click)="abrirConversa(group)"
+      [ngClass]="group == currentGroup ? 'open-chat' : ''">
+      <app-conversation [group]="group"></app-conversation>
     </div>
   </ng-container>
 </div>

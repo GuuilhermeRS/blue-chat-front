@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { BlueChatServerService } from 'src/app/services/blue-chat-server.service';
-import { Message } from './Message';
 import { MessageServiceService } from 'src/app/services/message-service.service';
 import { ActivatedRoute } from '@angular/router';
-import { IMessage } from '../../interfaces/IMessage';
+// import { IMessage } from '../../interfaces/IMessage';
+import { IGrupo } from 'src/app/models/interfaces/IGrupo';
+import { IMessage } from 'src/app/models/interfaces/IMessage';
+import { ChatService } from 'src/app/services/app/chat.service';
 
 @Component({
   selector: 'app-history',
@@ -11,40 +12,36 @@ import { IMessage } from '../../interfaces/IMessage';
   styleUrls: ['./history.component.css']
 })
 export class HistoryComponent implements OnInit {
-
-  messages: IMessage[] = [
-    {
-      content: 'Boa tarde',
-      received: true,
-      receivedAt: new Date(2023, 10, 9, 17, 0, 0)
-    },
-    {
-      content: 'Tudo bem?',
-      received: true,
-      receivedAt: new Date(2023, 10, 9, 17, 1, 0)
-    },
-    {
-      content: 'Boa tarde',
-      received: false,
-      receivedAt: new Date(2023, 10, 9, 17, 1, 0)
-    }
-  ]
+  public currentGroup: IGrupo | null = null;
+  public messages: IMessage[] = [];
 
   constructor(
     // private _wsService: BlueChatServerService,
     private _messageService: MessageServiceService,
-    private route: ActivatedRoute // Injete o ActivatedRoute
+    private route: ActivatedRoute, // Injete o ActivatedRoute
+    private _chatService: ChatService,
   ) { }
 
   ngOnInit(): void {
-    this.route.queryParams.subscribe(params => {
-      // this.id = params['Sala'];
+    this._chatService.getCurrentGroup().subscribe({
+      next: s => {
+        this.currentGroup = s;
+        this._chatService.getMessages(this.currentGroup?.id).subscribe({
+          next: s => this.messages = s
+        });
+      }
     });
 
-    this._messageService._messages.subscribe(s => {
-        // s[this.id].forEach(i => this.messageList.push(i));
-        // this.messageList = s[this.id];
-      });
+
+
+    // this.route.queryParams.subscribe(params => {
+    //   // this.id = params['Sala'];
+    // });
+
+    // this._messageService._messages.subscribe(s => {
+    //     // s[this.id].forEach(i => this.messageList.push(i));
+    //     // this.messageList = s[this.id];
+    //   });
   }
 }
 

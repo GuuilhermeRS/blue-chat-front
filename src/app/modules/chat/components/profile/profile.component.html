@@ -1,21 +1,26 @@
 <div class="chat-header">
 
-  <div class="profile">
-    <a href="#">
-      <img src='{{ user.profile_pic }}' alt="avatar">
-    </a>
-  </div>
+  <ng-container *ngIf="group != null">
+    <div class="profile">
+        <a href="#">
+          <img src='{{ group.profile_pic }}' alt="avatar">
+      </a>
+    </div>
 
-  <div class="chat-about">
-    <h6>{{ user.name }}</h6>
-    <small>Last seen: 2 hours ago</small>
-  </div>
+    <div class="chat-about">
+      <h6>{{ group.name }}</h6>
+      <small *ngIf="group.active; else activeIn">Online</small>
+      <ng-template #activeIn>
+        <small>Ultima vez online em: {{ group.active_in.toLocaleString() }}</small>
+      </ng-template>
+    </div>
 
-  <div class="col-lg-6 hidden-sm text-right">
-    <a href="javascript:void(0);" class="btn btn-outline-secondary"><i class="fa fa-camera"></i></a>
-    <a href="javascript:void(0);" class="btn btn-outline-primary"><i class="fa fa-image"></i></a>
-    <a href="javascript:void(0);" class="btn btn-outline-info"><i class="fa fa-cogs"></i></a>
-    <a href="javascript:void(0);" class="btn btn-outline-warning"><i class="fa fa-question"></i></a>
-  </div>
+    <div class="col-lg-6 hidden-sm text-right">
+      <a href="javascript:void(0);" class="btn btn-outline-secondary"><i class="fa fa-camera"></i></a>
+      <a href="javascript:void(0);" class="btn btn-outline-primary"><i class="fa fa-image"></i></a>
+      <a href="javascript:void(0);" class="btn btn-outline-info"><i class="fa fa-cogs"></i></a>
+      <a href="javascript:void(0);" class="btn btn-outline-warning"><i class="fa fa-question"></i></a>
+    </div>
+  </ng-container>
 
 </div>

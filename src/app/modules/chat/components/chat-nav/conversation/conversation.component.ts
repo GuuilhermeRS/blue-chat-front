@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { IUser } from '../../../interfaces/IUser';
+import { IGrupo } from 'src/app/models/interfaces/IGrupo';
 
 @Component({
   selector: 'app-conversation',
@@ -7,9 +7,12 @@ import { IUser } from '../../../interfaces/IUser';
   styleUrls: ['./conversation.component.css']
 })
 export class ConversationComponent {
-  @Input() user: IUser = {
+  @Input() group: IGrupo = {
+    id: 0,
+    guid: '',
     name: '',
     profile_pic: '',
     active: false,
-  };
+    active_in: new Date(0, 0, 0),
+  }
 }

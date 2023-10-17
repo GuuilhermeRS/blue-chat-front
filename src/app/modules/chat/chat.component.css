@@ -5,3 +5,8 @@
 .chield {
   flex-grow: 1;
 }
+
+.test {
+  width: 100%;
+  height: calc(100vh - 24px);
+}

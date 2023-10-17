@@ -1,7 +1,6 @@
-import { Component, Input } from '@angular/core';
-import { IUser } from '../../interfaces/IUser';
-
-
+import { Component, Input, OnInit } from '@angular/core';
+import { IGrupo } from 'src/app/models/interfaces/IGrupo';
+import { ChatService } from 'src/app/services/app/chat.service';
 
 @Component({
   selector: 'app-profile',
@@ -9,11 +8,16 @@ import { IUser } from '../../interfaces/IUser';
   styleUrls: ['./profile.component.css']
 })
 
-export class ProfileComponent {
-  @Input() public user: IUser = {
-    name: '',
-    profile_pic: ''
-  };
+export class ProfileComponent implements OnInit {
+  public group: IGrupo | null = null;
 
-  constructor() { }
+  constructor(
+    private _chatService: ChatService,
+  ) { }
+
+  ngOnInit(): void {
+    this._chatService.getCurrentGroup().subscribe({
+      next: s => this.group = s
+    });
+  }
 }

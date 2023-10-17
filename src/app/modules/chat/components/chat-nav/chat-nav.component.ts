@@ -1,34 +1,34 @@
-import { Component } from '@angular/core';
-import { IUser, IUserItemList } from '../../interfaces/IUser';
+import { Component, OnInit } from '@angular/core';
+import { IGrupo } from 'src/app/models/interfaces/IGrupo';
+import { ChatService } from 'src/app/services/app/chat.service';
 
 @Component({
   selector: 'app-chat-nav',
   templateUrl: './chat-nav.component.html',
   styleUrls: ['./chat-nav.component.css']
 })
-export class ChatNavComponent {
-  public users: IUserItemList[] = [
-    {
-      name: 'Usuário A',
-      profile_pic: 'https://cdn-icons-png.flaticon.com/512/21/21104.png',
-      active: false,
-      open_chat: true,
-    },
-    {
-      name: 'Usuário B',
-      profile_pic: 'https://cdn-icons-png.flaticon.com/512/21/21104.png',
-      active: true,
-      open_chat: false,
-    },
-    {
-      name: 'Usuário C',
-      profile_pic: 'https://cdn-icons-png.flaticon.com/512/21/21104.png',
-      active: true,
-      open_chat: false,
-    }
-  ]
+export class ChatNavComponent implements OnInit {
 
-  abrirConversa(user: IUserItemList) {
-    this.users.forEach(i => i.open_chat = i == user);
+  public groups: IGrupo[] = [];
+  public currentGroup: IGrupo | null = null;
+
+  constructor(
+    private _chatService: ChatService,
+  ) { }
+
+  ngOnInit(): void {
+    this._chatService.listGroup().subscribe({
+      next: s => {
+        this.groups = s;
+      }
+    });
+
+    this._chatService.getCurrentGroup().subscribe({
+      next: s => this.currentGroup = s
+    })
+  }
+
+  abrirConversa(grupo: IGrupo) {
+    this._chatService.setCurrentGroup(grupo);
   }
 }

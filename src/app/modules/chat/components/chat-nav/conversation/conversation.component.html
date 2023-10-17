@@ -1,9 +1,9 @@
 <div class="container">
   <a href="#" class="img-container">
-    <img src='{{ user.profile_pic }}' alt="avatar">
+    <img src='{{ group.profile_pic }}' alt="avatar">
   </a>
   <div class="profile">
-    <h4>{{ user.name }}</h4>
-    <p>{{ user.active ? 'Ativo' : 'Ativo em: ' + user.active_in }}</p>
+    <h4>{{ group.name }}</h4>
+    <p>{{ group.active ? 'Ativo' : 'Ativo em: ' + group.active_in.toLocaleString() }}</p>
   </div>
 </div>
